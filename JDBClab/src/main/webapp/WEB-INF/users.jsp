@@ -11,8 +11,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         
     </head>
-    <body >
-        <h1 class="text-center py-2">Mark's User Management System</h1>
+    <body class="bg-secondary">
+        <h1 class="text-center text-white py-2">Mark's User Management System</h1>
         
         <p class="text-center">
         <c:if test="${message eq 'Create'}"><strong>User Added</strong></c:if>
@@ -27,7 +27,7 @@
              
                  <!-- Column Add  user -->  
                 <div class="col">
-                    <h5>Add User</h5>
+                    <h5 class="text-white bg-dark">Add User</h5>
                      <form action="users" method="post" >
                          <div class="form-floating mb-1">
                              <input type="email"    name="email"  class="form-control form-control-sm" id="floatingInput" placeholder="Email" required><br /> 
@@ -57,13 +57,13 @@
                          </select><br /> 
                          
                          <input type="submit"  value="Create" name="action">
-                         
+                         <a href="users" class="link-dark text-decoration-none text-white bg-dark p-2">Back to Main</a>
                      </form>
                 
                 </div>
                           
                  <div class="col-7">
-                      <h5 class="text-center">Users list</h5> 
+                      <h5 class="text-center text-white bg-dark">Users list</h5> 
                         <table class ="table table-striped ">
                     <thead>
                         <tr class="table-light">
@@ -101,7 +101,7 @@
           
                 
                 <div class="col">
-                      <h5 >Edit/Delete User</h5> 
+                      <h5 class="text-white bg-dark">Edit/Delete User</h5> 
                     <!--Edit and Delete user --> 
                      <form action="users" method="post">
                           <div class="form-floating mb-1">
