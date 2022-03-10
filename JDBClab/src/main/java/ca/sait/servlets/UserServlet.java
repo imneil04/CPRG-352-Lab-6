@@ -44,18 +44,8 @@ public class UserServlet extends HttpServlet {
                 request.setAttribute("selectedEmail", user);
             } catch (Exception ex) {
                 Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-           
+            }       
        }
-        else if(action != null && action.equals("delete")){
-            try {
-                String email = request.getParameter("email");
-                User user = sv.get(email);
-                request.setAttribute("selectedEmail", user);
-            } catch (Exception ex) {
-                Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
       getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
     }
     
@@ -76,7 +66,8 @@ public class UserServlet extends HttpServlet {
         String roleId = request.getParameter("roleId");
         String roleName = "";
               
-         switch (roleId) {
+        try{
+             switch (roleId) {
              case "1":
                  roleName = "system admin";
                  break;
@@ -85,7 +76,11 @@ public class UserServlet extends HttpServlet {
                  break;
              case "3":
                  roleName = "company admin";       
-         }
+           }
+        }catch(Exception e) {
+            Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, e);
+            request.setAttribute("message", "error");
+        }
          
         Role role = new Role(Integer.parseInt(roleId), roleName);
         
@@ -98,7 +93,7 @@ public class UserServlet extends HttpServlet {
                    sv.update(email, true, firstName, lastName, password, role);
                     break;
                 case "Delete":
-                  sv.delete(email);       
+                  sv.delete(email);
             }
               request.setAttribute("message", action);
         } catch(Exception ex) {

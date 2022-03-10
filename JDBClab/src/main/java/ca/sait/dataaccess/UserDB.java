@@ -138,9 +138,9 @@ public class UserDB {
         ConnectionPool cp = ConnectionPool.getInstance();
         Connection con = cp.getConnection();
         PreparedStatement ps = null;
-        String sql = "DELETE FROM user WHERE email = ?";
+       // String sql = "DELETE FROM user WHERE email=?";
        
-       //String sql = "UPDATE user SET active = 0 WHERE email = ?";
+       String sql = "UPDATE user SET active = 0 WHERE email = ?";
         boolean deleted;
         
         try {

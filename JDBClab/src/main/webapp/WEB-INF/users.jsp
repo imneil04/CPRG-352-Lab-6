@@ -51,9 +51,9 @@
                          
                         
                          <select name="roleId" class="form-select form-select-md mb-1">
-                             <option value ="1">system admin</option>
-                             <option value ="2">regular user</option>
-                             <option value ="3">company admin</option>
+                             <option value ="1">1-system admin</option>
+                             <option value ="2">2-regular user</option>
+                             <option value ="3">3-company admin</option>
                          </select><br /> 
                          
                          <input type="submit"  value="Create" name="action">
@@ -73,14 +73,14 @@
                             <th>Active</th>
                             <th>Role</th>
                             <th>Edit</th>
-                            <th>Delete</th>
+                       
                         </tr>
                     </thead>
 
                     
                     <tbody>
                         <c:forEach var="user" items="${users}">
-                            <tr class="table-dark">
+                            <tr class="table-dark ">
                                
                              <td>${user.email}</td>
                              <td>${user.firstName}</td>
@@ -91,11 +91,7 @@
                                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                              </svg></a> </td>
-        
-                             <td><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x" viewBox="0 0 15 14">
-                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                              </svg></a></td>
-                            
+       
                             </tr>
                         </c:forEach>
                     </tbody>     
@@ -105,8 +101,8 @@
           
                 
                 <div class="col">
-                      <h5 >Edit User</h5> 
-                    <!--Edit user --> 
+                      <h5 >Edit/Delete User</h5> 
+                    <!--Edit and Delete user --> 
                      <form action="users" method="post">
                           <div class="form-floating mb-1">
                              <input type="email"  name="email" class="form-control"  placeholder="Email"  value="${selectedEmail.email}" id="floatingeEmail" required><br />
@@ -129,21 +125,15 @@
                          </div>
                        
                          <select name="roleId" class="form-select form-select-md mb-1">
-                             <option value ="1">system admin</option>
-                             <option value ="2">regular user</option>
-                             <option value ="3">company admin</option>
+                             <option value ="1">1-system admin</option>
+                             <option value ="2">2-regular user</option>
+                             <option value ="3">3-company admin</option>
                          </select><br /> 
                          
                          <input type="submit"  value="Edit" name="action">
-                         <input type="reset"  value="Clear" >
+                           <input type="submit" value="Delete" name="action">
                      </form>
-        
-                         <!--Delete user -->       
-                  <form action="users" method="post">
-                  
-                      <input type="email" name="email" value="${selectedEmail.email}" required>
-                    <input type="submit" value="Delete" name="action">
-                  </form>
+           
                 </div> <!--End tag of 3rd column-->             
             </div>
         </div>   <!--End of container tag -->
